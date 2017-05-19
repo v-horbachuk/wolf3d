@@ -44,6 +44,7 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/nfs/2016/v/vhorbach/Documents/Projects/wolf3d/./../i"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.0.0/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
@@ -66,6 +67,7 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/nfs/2016/v/vhorbach/Documents/Projects/wolf3d/./../i"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.0.0/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
@@ -82,7 +84,7 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/nfs/2016/v/vhorbach/Documents/Projects/wolf3d/main.cpp">
+		<Unit filename="/nfs/2016/v/vhorbach/Documents/Projects/wolf3d/main.c">
 			<Option target="wolf3d"/>
 		</Unit>
 		<Unit filename="/nfs/2016/v/vhorbach/Documents/Projects/wolf3d/CMakeLists.txt">

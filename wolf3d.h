@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WOLF3D_h
+#ifndef WOLF3D_H
 # define WOLF3D_H
 # define WIN_WID 1200
 # define WIN_HIGH 900
@@ -27,3 +27,29 @@
 # include <mlx.h>
 # include <stdio.h>
 # include <pthread.h>
+
+typedef struct			s_mlx
+{
+	void				*mlx;
+	void				*win;
+	void				*img;
+	char				*gda;
+	int					bpp;
+	int					sl;
+	int					endian;
+}						t_mlx;
+
+typedef	struct			s_cords
+{
+	struct s_cords		*next;
+	double				x;
+	double				y;
+}						t_cords;
+
+typedef struct			s_all
+{
+	t_cords				*map;
+	t_mlx				mlx;
+}						t_all;
+
+#endif

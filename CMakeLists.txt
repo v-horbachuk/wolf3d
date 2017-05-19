@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.6)
-project(fractol)
+project(wolf3d)
 
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Werror -Wextra")
 
@@ -9,6 +9,6 @@ link_directories(libft minilibx) # libraries
 set(SOURCE_FILES
         main.c) # sources
 
-add_executable(fractol ${SOURCE_FILES}) # compilation
+add_executable(wolf3d ${SOURCE_FILES}) # compilation
 
-target_link_libraries(fractol libft.a libmlx.a "-framework OpenGL" "-framework AppKit") # linkage
+target_link_libraries(wolf3d libft.a libmlx.a "-framework OpenGL" "-framework AppKit") # linkage

@@ -60,39 +60,39 @@ CMAKE_SOURCE_DIR = /nfs/2016/v/vhorbach/Documents/Projects/wolf3d
 CMAKE_BINARY_DIR = /nfs/2016/v/vhorbach/Documents/Projects/wolf3d/cmake-build-debug
 
 #=============================================================================
-# Target rules for target CMakeFiles/fractol.dir
+# Target rules for target CMakeFiles/wolf3d.dir
 
 # All Build rule for target.
-CMakeFiles/fractol.dir/all:
-	$(MAKE) -f CMakeFiles/fractol.dir/build.make CMakeFiles/fractol.dir/depend
-	$(MAKE) -f CMakeFiles/fractol.dir/build.make CMakeFiles/fractol.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/nfs/2016/v/vhorbach/Documents/Projects/wolf3d/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target fractol"
-.PHONY : CMakeFiles/fractol.dir/all
+CMakeFiles/wolf3d.dir/all:
+	$(MAKE) -f CMakeFiles/wolf3d.dir/build.make CMakeFiles/wolf3d.dir/depend
+	$(MAKE) -f CMakeFiles/wolf3d.dir/build.make CMakeFiles/wolf3d.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/nfs/2016/v/vhorbach/Documents/Projects/wolf3d/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target wolf3d"
+.PHONY : CMakeFiles/wolf3d.dir/all
 
 # Include target in all.
-all: CMakeFiles/fractol.dir/all
+all: CMakeFiles/wolf3d.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/fractol.dir/rule: cmake_check_build_system
+CMakeFiles/wolf3d.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /nfs/2016/v/vhorbach/Documents/Projects/wolf3d/cmake-build-debug/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/fractol.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/wolf3d.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /nfs/2016/v/vhorbach/Documents/Projects/wolf3d/cmake-build-debug/CMakeFiles 0
-.PHONY : CMakeFiles/fractol.dir/rule
+.PHONY : CMakeFiles/wolf3d.dir/rule
 
 # Convenience name for target.
-fractol: CMakeFiles/fractol.dir/rule
+wolf3d: CMakeFiles/wolf3d.dir/rule
 
-.PHONY : fractol
-
-# clean rule for target.
-CMakeFiles/fractol.dir/clean:
-	$(MAKE) -f CMakeFiles/fractol.dir/build.make CMakeFiles/fractol.dir/clean
-.PHONY : CMakeFiles/fractol.dir/clean
+.PHONY : wolf3d
 
 # clean rule for target.
-clean: CMakeFiles/fractol.dir/clean
+CMakeFiles/wolf3d.dir/clean:
+	$(MAKE) -f CMakeFiles/wolf3d.dir/build.make CMakeFiles/wolf3d.dir/clean
+.PHONY : CMakeFiles/wolf3d.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/wolf3d.dir/clean
 
 .PHONY : clean
 

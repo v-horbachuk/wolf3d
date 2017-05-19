@@ -37,8 +37,8 @@
 					<DistClean command="/usr/bin/make -j4 -f &quot;/nfs/2016/v/vhorbach/Documents/Projects/wolf3d/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="fractol">
-				<Option output="/nfs/2016/v/vhorbach/Documents/Projects/wolf3d/cmake-build-debug/fractol" prefix_auto="0" extension_auto="0"/>
+			<Target title="wolf3d">
+				<Option output="/nfs/2016/v/vhorbach/Documents/Projects/wolf3d/cmake-build-debug/wolf3d" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/nfs/2016/v/vhorbach/Documents/Projects/wolf3d/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
@@ -54,14 +54,14 @@
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/nfs/2016/v/vhorbach/Documents/Projects/wolf3d/cmake-build-debug/Makefile&quot;  VERBOSE=1 fractol"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/nfs/2016/v/vhorbach/Documents/Projects/wolf3d/cmake-build-debug/Makefile&quot;  VERBOSE=1 wolf3d"/>
 					<CompileFile command="/usr/bin/make -j4 -f &quot;/nfs/2016/v/vhorbach/Documents/Projects/wolf3d/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j4 -f &quot;/nfs/2016/v/vhorbach/Documents/Projects/wolf3d/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j4 -f &quot;/nfs/2016/v/vhorbach/Documents/Projects/wolf3d/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="fractol/fast">
-				<Option output="/nfs/2016/v/vhorbach/Documents/Projects/wolf3d/cmake-build-debug/fractol" prefix_auto="0" extension_auto="0"/>
+			<Target title="wolf3d/fast">
+				<Option output="/nfs/2016/v/vhorbach/Documents/Projects/wolf3d/cmake-build-debug/wolf3d" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/nfs/2016/v/vhorbach/Documents/Projects/wolf3d/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
@@ -77,7 +77,7 @@
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/nfs/2016/v/vhorbach/Documents/Projects/wolf3d/cmake-build-debug/Makefile&quot;  VERBOSE=1 fractol/fast"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/nfs/2016/v/vhorbach/Documents/Projects/wolf3d/cmake-build-debug/Makefile&quot;  VERBOSE=1 wolf3d/fast"/>
 					<CompileFile command="/usr/bin/make -j4 -f &quot;/nfs/2016/v/vhorbach/Documents/Projects/wolf3d/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j4 -f &quot;/nfs/2016/v/vhorbach/Documents/Projects/wolf3d/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j4 -f &quot;/nfs/2016/v/vhorbach/Documents/Projects/wolf3d/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
@@ -85,7 +85,7 @@
 			</Target>
 		</Build>
 		<Unit filename="/nfs/2016/v/vhorbach/Documents/Projects/wolf3d/main.c">
-			<Option target="fractol"/>
+			<Option target="wolf3d"/>
 		</Unit>
 		<Unit filename="/nfs/2016/v/vhorbach/Documents/Projects/wolf3d/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
