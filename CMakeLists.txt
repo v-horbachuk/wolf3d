@@ -7,7 +7,7 @@ include_directories(./../i) # headers
 link_directories(libft minilibx) # libraries
 
 set(SOURCE_FILES
-        main.c) # sources
+        main.c wolf3d.c) # sources
 
 add_executable(wolf3d ${SOURCE_FILES}) # compilation
 
