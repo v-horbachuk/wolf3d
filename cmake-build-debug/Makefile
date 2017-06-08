@@ -123,6 +123,33 @@ wolf3d/fast:
 	$(MAKE) -f CMakeFiles/wolf3d.dir/build.make CMakeFiles/wolf3d.dir/build
 .PHONY : wolf3d/fast
 
+keycodes.o: keycodes.c.o
+
+.PHONY : keycodes.o
+
+# target to build an object file
+keycodes.c.o:
+	$(MAKE) -f CMakeFiles/wolf3d.dir/build.make CMakeFiles/wolf3d.dir/keycodes.c.o
+.PHONY : keycodes.c.o
+
+keycodes.i: keycodes.c.i
+
+.PHONY : keycodes.i
+
+# target to preprocess a source file
+keycodes.c.i:
+	$(MAKE) -f CMakeFiles/wolf3d.dir/build.make CMakeFiles/wolf3d.dir/keycodes.c.i
+.PHONY : keycodes.c.i
+
+keycodes.s: keycodes.c.s
+
+.PHONY : keycodes.s
+
+# target to generate assembly for a file
+keycodes.c.s:
+	$(MAKE) -f CMakeFiles/wolf3d.dir/build.make CMakeFiles/wolf3d.dir/keycodes.c.s
+.PHONY : keycodes.c.s
+
 main.o: main.c.o
 
 .PHONY : main.o
@@ -149,6 +176,33 @@ main.s: main.c.s
 main.c.s:
 	$(MAKE) -f CMakeFiles/wolf3d.dir/build.make CMakeFiles/wolf3d.dir/main.c.s
 .PHONY : main.c.s
+
+raycast.o: raycast.c.o
+
+.PHONY : raycast.o
+
+# target to build an object file
+raycast.c.o:
+	$(MAKE) -f CMakeFiles/wolf3d.dir/build.make CMakeFiles/wolf3d.dir/raycast.c.o
+.PHONY : raycast.c.o
+
+raycast.i: raycast.c.i
+
+.PHONY : raycast.i
+
+# target to preprocess a source file
+raycast.c.i:
+	$(MAKE) -f CMakeFiles/wolf3d.dir/build.make CMakeFiles/wolf3d.dir/raycast.c.i
+.PHONY : raycast.c.i
+
+raycast.s: raycast.c.s
+
+.PHONY : raycast.s
+
+# target to generate assembly for a file
+raycast.c.s:
+	$(MAKE) -f CMakeFiles/wolf3d.dir/build.make CMakeFiles/wolf3d.dir/raycast.c.s
+.PHONY : raycast.c.s
 
 wolf3d.o: wolf3d.c.o
 
@@ -186,9 +240,15 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... wolf3d"
+	@echo "... keycodes.o"
+	@echo "... keycodes.i"
+	@echo "... keycodes.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... raycast.o"
+	@echo "... raycast.i"
+	@echo "... raycast.s"
 	@echo "... wolf3d.o"
 	@echo "... wolf3d.i"
 	@echo "... wolf3d.s"

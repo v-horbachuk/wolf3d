@@ -84,7 +84,13 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/nfs/2016/v/vhorbach/Documents/Projects/wolf3d/keycodes.c">
+			<Option target="wolf3d"/>
+		</Unit>
 		<Unit filename="/nfs/2016/v/vhorbach/Documents/Projects/wolf3d/main.c">
+			<Option target="wolf3d"/>
+		</Unit>
+		<Unit filename="/nfs/2016/v/vhorbach/Documents/Projects/wolf3d/raycast.c">
 			<Option target="wolf3d"/>
 		</Unit>
 		<Unit filename="/nfs/2016/v/vhorbach/Documents/Projects/wolf3d/wolf3d.c">

@@ -6,68 +6,13 @@
 /*   By: vhorbach <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/19 15:46:13 by vhorbach          #+#    #+#             */
-/*   Updated: 2017/05/19 15:46:16 by vhorbach         ###   ########.fr       */
+/*   Updated: 2017/06/08 20:02:44 by vhorbach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wolf3d.h"
 
-int		key_hook(int code, t_all *all)
-{
-	if (code == 53)
-		exit(0);
-	if (code == 126)
-	{
-		if(all->map[(int)(all->var.pos_x + all->var.dir_x / MS)][(int)all->var.pos_y] == '0')
-			all->var.pos_x += all->var.dir_x / MS;
-		if(all->map[(int)all->var.pos_x][(int)(all->var.pos_y + all->var.dir_y / MS)] == '0')
-			all->var.pos_y += all->var.dir_y / MS;
-		ft_image(all);
-	}
-	if (code == 125)
-	{
-		if(all->map[(int)(all->var.pos_x - all->var.dir_x / MS)][(int)all->var.pos_y] == '0')
-			all->var.pos_x -= all->var.dir_x / MS;
-		if(all->map[(int)all->var.pos_x][(int)(all->var.pos_y - all->var.dir_y / MS)] == '0')
-			all->var.pos_y -= all->var.dir_y / MS;
-		ft_image(all);
-	}
-	if (code == 124)
-	{
-		double		rad;
-
-		rad = M_PI * 2 / 180;
-		all->var.o_dir_x = all->var.dir_x;
-		all->var.dir_x = all->var.dir_x * cos(-rad) - all->var.dir_y * sin(-rad);
-		all->var.dir_y = all->var.o_dir_x * sin(-rad) + all->var.dir_y * cos(-rad);
-		all->var.o_pl_x = all->var.plane_x;
-		all->var.plane_x = all->var.plane_x * cos(-rad) - all->var.plane_y * sin(-rad);
-		all->var.plane_y= all->var.o_pl_x * sin(-rad) + all->var.plane_y * cos(-rad);
-		ft_image(all);
-	}
-	if (code == 123)
-	{
-		double		rad;
-
-		rad =  M_PI * 2 / 180;
-		all->var.o_dir_x = all->var.dir_x;
-		all->var.dir_x = all->var.dir_x * cos(rad) - all->var.dir_y * sin(rad);
-		all->var.dir_y = all->var.o_dir_x * sin(rad) + all->var.dir_y * cos(rad);
-		all->var.o_pl_x = all->var.plane_x;
-		all->var.plane_x = all->var.plane_x * cos(rad) - all->var.plane_y * sin(rad);
-		all->var.plane_y= all->var.o_pl_x * sin(rad) + all->var.plane_y * cos(rad);
-		ft_image(all);
-	}
-	return (0);
-}
-
-int 		exit_wolf(t_all *all)
-{
-	all->draw.color = 0;
-	exit(0);
-}
-
-void		mlx_define(t_all *all)
+void	mlx_define(t_all *all)
 {
 	all->mlx.mlx = mlx_init();
 	all->mlx.win = mlx_new_window(all->mlx.mlx, WIN_WID, WIN_HIGH, "wolf3d");
@@ -106,17 +51,17 @@ void	say_error(int code)
 	exit(0);
 }
 
-void 	map_size(t_all *all, char *line)
+void	map_size(t_all *all, char *line)
 {
-	int 	i;
+	int		i;
 
 	i = 0;
-	if (line[i] < 48 || line [i] > 57)
+	if (line[i] < 48 || line[i] > 57)
 		say_error(5);
 	all->var.map_w = ft_atoi(line);
 	while (line[i])
 	{
-		if ((line[i] < 48 || line [i] > 57))
+		if ((line[i] < 48 || line[i] > 57))
 			break ;
 		i++;
 	}
@@ -130,9 +75,9 @@ void 	map_size(t_all *all, char *line)
 
 char	**read_map(int fd, t_all *all)
 {
-	char 	**map;
-	char 	*line;
-	int 	i;
+	char	**map;
+	char	*line;
+	int		i;
 
 	line = NULL;
 	i = 0;
@@ -152,14 +97,14 @@ char	**read_map(int fd, t_all *all)
 	return (all->map);
 }
 
-int 	main(int ac, char **av)
+int		main(int ac, char **av)
 {
-	int 	fd;
+	int		fd;
 	t_all	*all;
 
 	if (ac == 2)
 	{
-		all = (t_all *) malloc(sizeof(t_all));
+		all = (t_all *)malloc(sizeof(t_all));
 		fd = open(av[1], O_RDONLY);
 		if (fd < 0)
 			say_error(3);

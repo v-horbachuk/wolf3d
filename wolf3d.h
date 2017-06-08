@@ -89,5 +89,11 @@ typedef struct			s_all
 
 void					ft_image(t_all *all);
 void					say_error(int code);
+void					var_define(t_all *all, int x);
+void					step_define(t_all *all);
+void					start_end_define(t_all *all);
+void					raycast(t_all *all);
+int						exit_wolf(t_all *all);
+int						key_hook(int code, t_all *all);
 
 #endif
