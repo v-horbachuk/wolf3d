@@ -16,7 +16,7 @@
 # define WIN_HIGH 600
 # define IMG_WID 900
 # define IMG_HIGH 600
-# define MS 3
+# define MS 4
 
 # include <stdlib.h>
 # include <stdbool.h>
