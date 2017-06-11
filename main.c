@@ -17,13 +17,13 @@ void	mlx_define(t_all *all)
 	all->mlx.mlx = mlx_init();
 	all->mlx.win = mlx_new_window(all->mlx.mlx, WIN_WID, WIN_HIGH, "wolf3d");
 	all->var.pos_x = 19;
-	all->var.pos_y = 7;
+	all->var.pos_y = 2;
 	if (all->map[(int)all->var.pos_x][(int)all->var.pos_y] == '1')
 		say_error(6);
-	all->var.dir_x = -1.;
+	all->var.dir_x = -0.999;
 	all->var.dir_y = 0.;
-	all->var.plane_x = 0.;
-	all->var.plane_y = 0.66;
+	all->var.plane_x = 0;
+	all->var.plane_y = 0.6;
 	ft_image(all);
 	mlx_hook(all->mlx.win, 2, 3, key_hook, all);
 	mlx_hook(all->mlx.win, 17, 1L << 17, exit_wolf, all);
@@ -35,8 +35,8 @@ void	say_error(int code)
 	if (code == 1)
 	{
 		ft_putstr("usage:\n");
-		ft_putstr("       There should be only one argument\n");
-		ft_putstr("       Use one of the 'map' files as argument\n");
+		ft_putstr("       There should be no argument\n");
+		ft_putstr("       Run only 'wolf3d' executable\n");
 	}
 	else if (code == 2)
 		ft_putstr("Cannot read the file");
@@ -53,19 +53,11 @@ void	say_error(int code)
 
 void	map_size(t_all *all, char *line)
 {
-	int		i;
-
-	i = 0;
-	if (line[i] < 48 || line[i] > 57)
-		say_error(5);
+	while (*line && ft_isspace(*line))
+		line++;
 	all->var.map_w = ft_atoi(line);
-	while (line[i])
-	{
-		if ((line[i] < 48 || line[i] > 57))
-			break ;
-		i++;
-	}
-	line = ft_strsub(line, (unsigned int)i, 3);
+	while (*line && !(ft_isspace(*line)))
+		line++;
 	all->var.map_h = ft_atoi(line);
 	if (all->var.map_w > 99 || all->var.map_w < 3)
 		say_error(5);
@@ -73,9 +65,8 @@ void	map_size(t_all *all, char *line)
 		say_error(5);
 }
 
-char	**read_map(int fd, t_all *all)
+void	read_map(int fd, t_all *all)
 {
-	char	**map;
 	char	*line;
 	int		i;
 
@@ -84,35 +75,26 @@ char	**read_map(int fd, t_all *all)
 	get_next_line(fd, &line);
 	map_size(all, line);
 	free(line);
-	map = (char **)malloc(sizeof(char *) * all->var.map_w + 1);
-	if (!map)
+	all->map = (char **)malloc(sizeof(char *) * all->var.map_h + 1);
+	if (!all->map)
 		say_error(4);
-	while (get_next_line(fd, &line))
-	{
-		map[i] = ft_strdup(line);
+	all->map[all->var.map_h] = 0;
+	while (i < all->var.map_h && get_next_line(fd, &all->map[i]) > 0)
 		i++;
-	}
-	free(line);
-	all->map = map;
-	return (all->map);
+	close(fd);
 }
 
 int		main(int ac, char **av)
 {
 	int		fd;
-	t_all	*all;
+	t_all	all;
 
-	if (ac == 2)
-	{
-		all = (t_all *)malloc(sizeof(t_all));
-		fd = open(av[1], O_RDONLY);
-		if (fd < 0)
-			say_error(3);
-		read_map(fd, all);
-		mlx_define(all);
-		close(fd);
-	}
-	else
+	if (ac >= 2 || !(av[0]))
 		say_error(1);
+	fd = open(MAP, O_RDONLY);
+	if (fd < 0)
+		say_error(3);
+	read_map(fd, &all);
+	mlx_define(&all);
 	return (0);
 }

@@ -5,54 +5,62 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vhorbach <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/11 16:51:25 by vhorbach          #+#    #+#             */
-/*   Updated: 2017/04/15 16:53:16 by vhorbach         ###   ########.fr       */
+/*   Created: 2017/06/11 15:28:15 by vhorbach          #+#    #+#             */
+/*   Updated: 2017/06/11 15:29:18 by vhorbach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int			ft_wtf(char **line, char *str)
+
+static char	*ft_wtf(char *str, char *buf)
 {
-	*line = ft_strnew(0);
-	if (str)
-		free(str);
-	return (0);
+	char		*t;
+
+	t = ft_strdup(str);
+	ft_strdel(&str);
+	str = ft_strjoin(t, buf);
+	ft_strdel(&t);
+	return (str);
 }
 
-void		ft_fill_line(t_str *array, char **line, const int fd)
+static void	get_line(char *str, char **line, char **tmp, char **buf)
 {
-	size_t		i;
+	int i;
 
 	i = 0;
-	while (array[fd].str[i] != '\n' && array[fd].str[i] != '\0')
-		i++;
-	*line = ft_strsub(array[fd].str, 0, i);
-	i++;
-	array[fd].str = ft_strsub(array[fd].str, i, (ft_strlen(array[fd].str) - i));
+	while (str[i] != '\n' && str[i])
+		++i;
+	*line = ft_strsub(str, 0, i);
+	*tmp = ft_strsub(str, i, ft_strlen(str) - i);
+	ft_strdel(buf);
+	ft_strdel(&str);
 }
 
 int			get_next_line(const int fd, char **line)
 {
-	int				read_ret;
-	char			*buf;
-	static t_str	array[OPEN_MAX];
+	static char	*tmp[OPEN_MAX];
+	char		*buf;
+	char		*str;
+	int			ret;
 
-	if (!(buf = ft_strnew(BUFF_SIZE)) || fd > OPEN_MAX || fd < 0)
+	if (fd < 0 || BUFF_SIZE <= 0 || fd > OPEN_MAX)
 		return (-1);
-	while ((read_ret = read(fd, buf, BUFF_SIZE)))
+	buf = ft_strnew(BUFF_SIZE);
+	str = ft_strnew(0);
+	if (tmp[fd] && (str = ft_wtf(str, tmp[fd] + 1)))
+		ft_strdel(&tmp[fd]);
+	while ((ret = read(fd, buf, BUFF_SIZE)))
 	{
-		if (read_ret < 0)
+		if (ret < 0)
 			return (-1);
-		buf[read_ret] = '\0';
-		if (!array[fd].str)
-			array[fd].str = ft_strnew(0);
-		array[fd].str = ft_strjoin(array[fd].str, buf);
-		if (ft_strchr(array[fd].str, '\n'))
+		buf[ret] = '\0';
+		str = ft_wtf(str, buf);
+		if (ft_strchr(buf, '\n'))
 			break ;
 	}
-	if (read_ret == 0 && buf[0] == 0 && array[fd].str[0] == 0)
-		return (ft_wtf(line, array[fd].str));
-	ft_fill_line(array, line, fd);
+	if (ret == 0 && (buf[0] == '\0' && str[0] == '\0'))
+		return (0);
+	get_line(str, line, &tmp[fd], &buf);
 	return (1);
 }

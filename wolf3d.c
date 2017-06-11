@@ -12,7 +12,7 @@
 
 #include "wolf3d.h"
 
-void		ver_line(int x, int s, int e, t_all *all)
+void		draw_line(int x, int s, int e, t_all *all)
 {
 	int		a;
 	int		red;
@@ -34,6 +34,24 @@ void		ver_line(int x, int s, int e, t_all *all)
 	}
 }
 
+void		wall_color_define(t_all *all)
+{
+	if (all->var.side == 0)
+	{
+		if (all->var.step_x == 1)
+			all->draw.color = 0x0000ff;
+		else
+			all->draw.color = 0xff0000;
+	}
+	else
+	{
+		if (all->var.step_y == -1)
+			all->draw.color = 0x00ff00;
+		else
+			all->draw.color = 0xffff00;
+	}
+}
+
 void		draw(t_all *all)
 {
 	int		x;
@@ -45,21 +63,12 @@ void		draw(t_all *all)
 		step_define(all);
 		raycast(all);
 		start_end_define(all);
-		if (all->var.side == 0)
-		{
-			if (all->var.step_x == 1)
-				all->draw.color = 0xff0000;
-			else
-				all->draw.color = 0x0000ff;
-		}
-		else
-		{
-			if (all->var.step_y == -1)
-				all->draw.color = 0x00ff00;
-			else
-				all->draw.color = 0xffff00;
-		}
-		ver_line(x, all->draw.draw_start, all->draw.draw_end, all);
+		wall_color_define(all);
+		draw_line(x, all->draw.draw_start, all->draw.draw_end, all);
+		all->draw.color = 0x220077;
+		draw_line(x, 0, all->draw.draw_start, all);
+		all->draw.color = 0x227700;
+		draw_line(x, all->draw.draw_end, IMG_HIGH - 1, all);
 	}
 }
 
@@ -78,6 +87,6 @@ void		ft_image(t_all *all)
 
 int			exit_wolf(t_all *all)
 {
-	all->draw.color = 0;
+	all = NULL;
 	exit(0);
 }

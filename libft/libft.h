@@ -6,7 +6,7 @@
 /*   By: vhorbach <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/01 14:04:09 by vhorbach          #+#    #+#             */
-/*   Updated: 2016/12/08 18:44:19 by vhorbach         ###   ########.fr       */
+/*   Updated: 2017/06/09 17:09:40 by vhorbach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
+# include <sys/stat.h>
+# include <fcntl.h>
 
 typedef struct		s_str
 {
@@ -56,6 +58,7 @@ int					ft_isalpha(int c);
 int					ft_isdigit(int c);
 int					ft_isalnum(int c);
 int					ft_isascii(int c);
+int					ft_isspace(int c);
 int					ft_isprint(int c);
 int					ft_toupper(int c);
 int					ft_tolower(int c);

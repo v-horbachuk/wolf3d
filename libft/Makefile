@@ -6,7 +6,7 @@
 #    By: vhorbach <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/06 18:44:15 by vhorbach          #+#    #+#              #
-#    Updated: 2017/02/23 16:53:20 by vhorbach         ###   ########.fr        #
+#    Updated: 2017/06/09 17:23:22 by vhorbach         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -24,7 +24,7 @@ SRC = ./ft_atoi.c ./ft_bzero.c ./ft_isalnum.c ./ft_isalpha.c ./ft_isascii.c \
       ./ft_strnew.c ./ft_strnstr.c ./ft_strrchr.c ./ft_strstr.c ./ft_strsub.c \
       ./ft_strtrim.c ./ft_tolower.c ./ft_toupper.c ./ft_strsplit.c \
       ./ft_lstdel.c ./ft_lstadd.c ./ft_lstdelone.c ./ft_lstiter.c ./ft_lstnew.c \
-      ./ft_count_words.c ./ft_lstmap.c ./get_next_line.c
+      ./ft_count_words.c ./ft_lstmap.c ./get_next_line.c ./ft_isspace.c
 
 OBJ = $(SRC:.c=.o)
 

@@ -89,8 +89,8 @@ void		raycast(t_all *all)
 			all->var.map_y += all->var.step_y;
 			all->var.side = 1;
 		}
-		if (all->var.map_x >= 0 && all->var.map_x <= all->var.map_h
-			&& all->var.map_y >= 0 && all->var.map_y <= all->var.map_w)
+		if (all->var.map_x >= 0 && all->var.map_x < all->var.map_h
+			&& all->var.map_y >= 0 && all->var.map_y < all->var.map_w)
 		{
 			if (all->map[all->var.map_x][all->var.map_y] > '0')
 				all->var.hit = 1;

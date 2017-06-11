@@ -17,9 +17,9 @@
 # define IMG_WID 900
 # define IMG_HIGH 600
 # define MS 4
+# define MAP "map.wolf3d"
 
 # include <stdlib.h>
-# include <stdbool.h>
 # include <unistd.h>
 # include <fcntl.h>
 # include <sys/stat.h>
@@ -28,7 +28,6 @@
 # include "libft/libft.h"
 # include <mlx.h>
 # include <stdio.h>
-# include <pthread.h>
 
 typedef struct			s_mlx
 {
